@@ -1,11 +1,18 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function NavigationBar({ myListCount }) {
+  const [activePath, setActivePath] = useState("");
+
+  useEffect(() => {
+    setActivePath(window.location.pathname);
+  }, []);
+
   return (
-    <>
-      <ul className="menu bg-base-200 menu-horizontal rounded-box">
-        <li>
-          <Link href="/">
+    <ul className="menu bg-base-200 menu-horizontal rounded-box">
+      <li className={activePath === "/" ? "bg-base-100 rounded-box" : ""}>
+        <Link href="/">
+          <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="size-5"
@@ -21,10 +28,14 @@ export default function NavigationBar({ myListCount }) {
               />
             </svg>
             Home
-          </Link>
-        </li>
-        <li>
-          <Link href="/my-list">
+          </div>
+        </Link>
+      </li>
+      <li
+        className={activePath === "/my-list" ? "bg-base-100 rounded-box" : ""}
+      >
+        <Link href="/my-list">
+          <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -39,10 +50,12 @@ export default function NavigationBar({ myListCount }) {
             </svg>
             My List
             <span className="badge badge-sm badge-neutral">{myListCount}</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/about">
+          </div>
+        </Link>
+      </li>
+      <li className={activePath === "/about" ? "bg-base-100 rounded-box" : ""}>
+        <Link href="/about">
+          <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="size-5"
@@ -54,13 +67,13 @@ export default function NavigationBar({ myListCount }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
               />
             </svg>
             About
-          </Link>
-        </li>
-      </ul>
-    </>
+          </div>
+        </Link>
+      </li>
+    </ul>
   );
 }

@@ -11,7 +11,7 @@ const RemoveButton = ({ movie, onRemove }) => {
   };
 
   return (
-    <button className="btn btn-outline btn-secondary" onClick={handleRemove}>
+    <button className="btn btn-outline btn-default" onClick={handleRemove}>
       Remove from List
     </button>
   );

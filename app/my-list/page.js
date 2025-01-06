@@ -38,7 +38,7 @@ export default function MyList() {
 
       {/* CONTENT */}
       <section>
-        <div className="my-list-container">
+        <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">My List</h1>
           {myList.length === 0 ? (
             <p>Your list is empty. Add some movies!</p>
