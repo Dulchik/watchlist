@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function NavigationBar() {
+export default function NavigationBar({ myListCount }) {
   return (
     <>
-      <ul className="menu bg-base-200 lg:menu-horizontal rounded-box">
+      <ul className="menu bg-base-200 menu-horizontal rounded-box">
         <li>
           <Link href="/">
             <svg
@@ -38,7 +38,7 @@ export default function NavigationBar() {
               />
             </svg>
             My List
-            <span className="badge badge-sm badge-neutral">1</span>
+            <span className="badge badge-sm badge-neutral">{myListCount}</span>
           </Link>
         </li>
         <li>
